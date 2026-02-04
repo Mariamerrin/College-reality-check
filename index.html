@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>College Reality Check</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Analytics (add later) -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#f2f4ff;
+  margin:0;
+}
+header{
+  background:#5a6cff;
+  color:white;
+  text-align:center;
+  padding:40px 20px;
+}
+section{
+  max-width:800px;
+  margin:auto;
+  padding:20px;
+}
+.poll{
+  background:white;
+  padding:20px;
+  margin-bottom:20px;
+  border-radius:10px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.08);
+}
+.poll button{
+  padding:10px 18px;
+  margin:8px 6px;
+  border:none;
+  border-radius:25px;
+  background:#5a6cff;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+.poll button:hover{
+  background:#3f51e3;
+  transform:scale(1.05);
+}
+.message{
+  margin-top:10px;
+  font-weight:bold;
+  color:#333;
+}
+textarea{
+  width:100%;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+footer{
+  text-align:center;
+  padding:15px;
+  background:#eee;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>College Reality Check</h1>
+  <p>Your voice. Your opinion. Your college life.</p>
+</header>
+
+<section>
+
+<div class="poll">
+  <h2>❓ Do you feel stressed during exams?</h2>
+  <button onclick="vote('Exam Stress - Yes')">Yes 😵</button>
+  <button onclick="vote('Exam Stress - Sometimes')">Sometimes 😐</button>
+  <button onclick="vote('Exam Stress - No')">No 😊</button>
+  <div class="message" id="msg"></div>
+</div>
+
+<div class="poll">
+  <h2>❓ When do you usually study?</h2>
+  <button onclick="vote('Study - Daily')">Daily</button>
+  <button onclick="vote('Study - Before Exams')">Before Exams</button>
+  <button onclick="vote('Study - Night Before')">Night Before 😅</button>
+</div>
+
+<h2>💡 Awareness</h2>
+<p>
+College life is not only about grades.  
+Mental health, balance, and self-discipline matter.
+</p>
+
+<h2>📝 Share your thought</h2>
+<textarea placeholder="What is the biggest challenge in college life?"></textarea><br><br>
+<button onclick="alert('Thank you for sharing!')">Submit</button>
+
+</section>
+
+<footer>
+Made for students ❤️
+</footer>
+
+<script>
+function vote(choice){
+  document.getElementById("msg").innerText =
+    "Thanks for sharing! Many students feel the same.";
+
+  // Google Analytics event (works after hosting)
+  if(typeof gtag === "function"){
+    gtag('event','poll_vote',{
+      event_category:'Poll',
+      event_label:choice
+    });
+  }
+}
+</script>
+
+</body>
+</html>
